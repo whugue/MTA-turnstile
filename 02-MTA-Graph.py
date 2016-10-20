@@ -1,14 +1,23 @@
+"""
+Script:     01-MTA-Counts.py
+Purpose:    Read-in raw MTA turnstile data and count the total number of entries and exits per station.
+Input:      data/mta_count_total.csv
+Output:     graphics/BusiestSubwayStops.png
+"""
 
 import numpy as np
 import pandas as pd
 from matplotlib import pyplot as plt
 
-#Read In
+
+#Read In MTA Count Data
 df=pd.read_csv("data/mta_count_total.csv", names=["station_line","volume_per_hour"])
+
 
 #Sort
 df=df.sort_values(by="volume_per_hour", ascending=True)
 df=df.reset_index(drop=True)
+
 
 #Clean
 df.ix[df.volume_per_hour<100,"volume_per_hour"] = np.nan

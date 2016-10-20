@@ -1,3 +1,11 @@
+"""
+Script:     01-MTA-Counts.py
+Purpose:    Read-in raw MTA turnstile data and count the total number of entries and exits per station.
+Input:      data/turnstile_YYMMDD.txt
+Output:     data/mta_count_total.csv
+"""
+
+
 import csv
 from collections import defaultdict
 import datetime
